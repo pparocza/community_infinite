@@ -1,63 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>community infinite</title>
+	<title>community infinite</title>
 </head>
-<body class="bodyElement">
+<body class="bodyElement" id="myBody">
 
- <style>
- .container{
- position: absolute;
-   top: 50%;
-   left: 50%;
-   -moz-transform: translateX(-50%) translateY(-50%);
-   -webkit-transform: translateX(-50%) translateY(-50%);
-   transform: translateX(-50%) translateY(-50%);
- }
- h1{
-   font: 28px Brush Script MT, sans-serif;
- }
- a{
-   font: 15px Trebuchet MS, sans-serif;
- }
- button{
-   font: 17px Garamond, sans-serif;
- }
- label{
-   font: 17px Courier, sans-serif;
- }
- span{
-   font: 17px Courier, sans-serif;
- }
- div{
-   font: 15px Trebuchet MS, sans-serif;
- }
- body{background: black url();}
+	<style>
+	.container{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+	}
+	h1{
+		font: 28px Brush Script MT, sans-serif;
+	}
+	a{
+		font: 15px Trebuchet MS, sans-serif;
+	}
+	button{
+		font: 17px Garamond, sans-serif;
+	}
+	label{
+		font: 17px Courier, sans-serif;
+	}
+	span{
+		font: 17px Courier, sans-serif;
+	}
+	div{
+		font: 15px Trebuchet MS, sans-serif;
+	}
 
- </style>
+	</style>
 
- <div class="container">
+	<div class="container">
 
-   <h1 align="center"><font color="whitesmoke">community infinite</font></h1>
+    <h1 align="center" display='inline-block'><font color="whitesmoke" class="title">community infinite</font></h1>
 
-   <p align="center"><button class="online">online</button> <button class="start">load</button></p>
+    <p align="center"><button class="online">online</button> <button class="start">load</button></p>
 
- <p align="center">
- <label for='gain'><font color="whitesmoke">Volume: </font><span><font color="whitesmoke" class='gain'>50%</font></span>
- <br>
- <input class="gain-slider" type="range" min="0" max="1" step=".001" value = "0.5">
- </label>
+	<p align="center">
+	<label for='gain'><font color="whitesmoke" class="volume">Volume: </font><span><font color="whitesmoke" class='gain'>50%</font></span>
+	<br>
+	<input class="gain-slider" type="range" min="0" max="1" step=".001" value = "0.5">
+	</label>
 
- <p align="center">
+    <p>
 
- <iframe style="border: 0; width: 83%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=2714865583/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/track=4106246561/transparent=true/" seamless><a href="https://paulparoczai.bandcamp.com/album/web-audio-bounces">web audio bounces by Paul Paroczai</a></iframe>
+	<p align="center">
 
-  </p>
+	<!--
+	<iframe style="border: 0; width: 83%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=2714865583/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/track=19738616/transparent=true/" seamless><a href="https://paulparoczai.bandcamp.com/album/infinite-sibling">infinite sibling by Paul Paroczai</a></iframe>
+	-->
+	
+  	</p>
 
- </div>
+	</div>
 
- <script src="scripts/UI.js"></script>
- <script src="scripts/initialize.js"></script>
+	<script src="scripts/UI.js"></script>
+  <script src="scripts/utilities.js"></script>
+	<script src="scripts/initialize.js"></script>
 
 </body>
 </html>
