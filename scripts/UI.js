@@ -4,13 +4,6 @@ var gainSlider = document.querySelector('.gain-slider');
 var gainDisplay = document.querySelector('.gain');
 var volume = gainSlider.value;
 var displayVolume;
-var hslColor = Math.floor( Math.random() * 361 );
-var hslOpp = (hslColor + 180) % 360;
-
-document.querySelector(".bodyElement").style.backgroundColor = `hsl(${hslColor}, 100%, 75%)`;
-document.querySelector(".title").style.color = `hsl(${hslOpp}, 100%, 50%)`;
-document.querySelector(".gain").style.color = `hsl(${hslOpp}, 100%, 50%)`;
-document.querySelector(".volume").style.color = `hsl(${hslOpp}, 100%, 50%)`;
 
 onlineButton.onclick = function(){
 
