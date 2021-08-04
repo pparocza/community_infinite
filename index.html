@@ -1,67 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>community infinite</title>
-</head>
-<body class="bodyElement" id="myBody">
+var startButton = document.querySelector('.start');
+var onlineButton = document.querySelector('.online');
+var gainSlider = document.querySelector('.gain-slider');
+var gainDisplay = document.querySelector('.gain');
+var volume = gainSlider.value;
+var displayVolume;
 
-	<style>
-	.container{
-	position: absolute;
-    top: 50%;
-    left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-	}
-	h1{
-		font: 28px Brush Script MT, sans-serif;
-	}
-	a{
-		font: 15px Trebuchet MS, sans-serif;
-	}
-	button{
-		font: 17px Garamond, sans-serif;
-	}
-	label{
-		font: 17px Courier, sans-serif;
-	}
-	span{
-		font: 17px Courier, sans-serif;
-	}
-	div{
-		font: 15px Trebuchet MS, sans-serif;
+onlineButton.onclick = function(){
+
+	if(onlineButton.innerHTML=="online"){
+		onlineButton.innerHTML = "offline";
 	}
 
-	</style>
+	else if(onlineButton.innerHTML=="offline"){
+		onlineButton.innerHTML = "online";
+	}
 
-	<div class="container">
+}
 
-    <h1 align="center" display='inline-block'><font color="whitesmoke" class="title">community infinite</font></h1>
+startButton.onclick = function(){
+	if(startButton.innerHTML=="load" && onlineButton.innerHTML=="online"){
+		startButton.disabled = true;
+		startButton.innerHTML = "...loading";
+		init();
+	}
+	if(startButton.innerHTML=="load" && onlineButton.innerHTML=="offline"){
+		startButton.disabled = true;
+		startButton.innerHTML = "...loading";
+		initOffline();
+	}
+	if (startButton.innerHTML == "start" && onlineButton.innerHTML=="online"){
+		startButton.innerHTML = "stop";
+		runPatch();
+		setTimeout(function(){stopPatch();}, pieceLength*1000);
+	}
+	else if (startButton.innerHTML == "start" && onlineButton.innerHTML=="offline"){
+		startButton.innerHTML = "stop";
+		offlineBuffer.start();
+		setTimeout(function(){stopPatch();}, pieceLength*1000);
+	}
+	else if(startButton.innerHTML == "reset"){
+		location.reload();
+	}
+	else if(startButton.innerHTML == "stop"){
+		stopPatch();
+	}
+}
 
-    <p align="center"><button class="online">online</button> <button class="start">load</button></p>
-
-	<p align="center">
-	<label for='gain'><font color="whitesmoke" class="volume">Volume: </font><span><font color="whitesmoke" class='gain'>50%</font></span>
-	<br>
-	<input class="gain-slider" type="range" min="0" max="1" step=".001" value = "0.5">
-	</label>
-
-    <p>
-
-	<p align="center">
-
-	<!--
-	<iframe style="border: 0; width: 83%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=2714865583/size=small/bgcol=ffffff/linkcol=0687f5/artwork=none/track=19738616/transparent=true/" seamless><a href="https://paulparoczai.bandcamp.com/album/infinite-sibling">infinite sibling by Paul Paroczai</a></iframe>
-	-->
-	
-  	</p>
-
-	</div>
-
-	<script src="scripts/UI.js"></script>
-  <script src="scripts/utilities.js"></script>
-	<script src="scripts/initialize.js"></script>
-
-</body>
-</html>
+gainSlider.oninput = function(){
+	volume = gainSlider.value;
+	gainDisplay.innerHTML = parseInt(volume*100) + "%";
+	masterGain.gain.value = volume;
+}
