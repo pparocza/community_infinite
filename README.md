@@ -1,2 +1,3 @@
 # community_infinite
-generative music with Web Audio API
+
+https://pparocza.github.io/community_infinite/
